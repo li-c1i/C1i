@@ -27,6 +27,9 @@
                     calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
                     calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
                     calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
+            position: absolute;
+            left: 0;
+
         }
 
         .Star1text {
@@ -34,7 +37,7 @@
             font-family: "Anonymous Pro", monospace;
             font-weight: 400;
             font-style: italic;
-            font-size: 35px;
+            font-size: 25px;
             padding-bottom: 110px;
             padding-top: 110px;
 
@@ -49,6 +52,9 @@
                     calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
                     calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
                     calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .Star2text {
@@ -56,7 +62,7 @@
             font-family: "Anonymous Pro", monospace;
             font-weight: 400;
             font-style: italic;
-            font-size: 35px;
+            font-size: 25px;
             padding-bottom: 110px;
             padding-top: 110px;
 
@@ -71,6 +77,8 @@
                     calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
                     calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
                     calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
+            position: absolute;
+            right: 0;
         }
 
         .Star3text {
@@ -78,7 +86,7 @@
             font-family: "Anonymous Pro", monospace;
             font-weight: 400;
             font-style: italic;
-            font-size: 35px;
+            font-size: 25px;
             padding-bottom: 110px;
             padding-top: 110px;
 
@@ -93,6 +101,10 @@
                     calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
                     calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
                     calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
+            position: absolute;
+            left: 40%;
+            top: 50%;
+
         }
 
         .Star4text {
@@ -100,26 +112,87 @@
             font-family: "Anonymous Pro", monospace;
             font-weight: 400;
             font-style: italic;
-            font-size: 35px;
+            font-size: 25px;
             padding-bottom: 110px;
             padding-top: 110px;
 
-            h1 {
-                color: rgb(0, 255, 255);
-                font-family: "Anonymous Pro", monospace;
-                font-weight: 400;
-                font-style: italic;
-            }
+        }
 
-            h2 {
-                color: rgb(0, 255, 255);
-                font-family: "Anonymou Pro", monospace;
-            }
+        .Stars5 {
+            width: 300px;
+            aspect-ratio: 1;
+            background-image: linear-gradient(fuchsia, white);
+            clip-path: polygon(50% 0,
+                    calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
+                    calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+                    calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+                    calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
+            position: absolute;
+            right: 0%;
+            top: 50%;
+        }
 
-            h3 {
-                color: rgb(0, 255, 255);
-                font-family: "Anonymou Pro", monospace;
-            }
+        .Star5text {
+            color: rgb(0, 255, 255);
+            font-family: "Anonymous Pro", monospace;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 25px;
+            padding-bottom: 110px;
+            padding-top: 110px;
+        }
+
+        .Stars6 {
+            width: 300px;
+            aspect-ratio: 1;
+            background-image: linear-gradient(fuchsia, white);
+            clip-path: polygon(50% 0,
+                    calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
+                    calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+                    calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+                    calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
+            position: absolute;
+            left: 0%;
+            top: 50%;
+        }
+
+        .Star6text {
+            color: rgb(0, 255, 255);
+            font-family: "Anonymous Pro", monospace;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 25px;
+            padding-bottom: 110px;
+            padding-top: 110px;
+
+        }
+
+        h1 {
+            color: rgb(0, 255, 255);
+            font-family: "Anonymous Pro", monospace;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        h2 {
+            font-size: 35px;
+            color: rgb(0, 255, 255);
+            position: absolute;
+            bottom: 8px;
+            left: 16px;
+            font-size: 18px;
+        }
+
+        h3 {
+            font-size: 35px;
+            color: rgb(0, 255, 255);
+            position: absolute;
+            bottom: 8px;
+            right: 16px;
+            font-size: 18px;
+
+
+        }
     </style>
     <h1> <strong>Step 1</strong>: Select what you’re matching with:</h1>
     <div class="Stars1" style="text-align: center;">
@@ -131,12 +204,21 @@
     </div>
 
     <div class="Stars3" style="text-align: center;">
-        <p class="Star3text">Outwears</p>
+        <p class="Star3text">Socks</p>
     </div>
 
     <div class="Stars4" style="text-align: center;">
         <p class="Star4text">Shoes</p>
     </div>
+
+    <div class="Stars5" style="text-align: center;">
+        <p class="Star5text">Bags</p>
+    </div>
+
+    <div class="Stars6" style="text-align: center;">
+        <p class="Star6text">Hearwears</p>
+    </div>
+
     <a href="index.html">
         <h2>Back</h2>
         <a href="entry3.html">
