@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ur digital closet *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚</title>
 </head>
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet">
+
 <body>
     <style>
         body {
@@ -80,22 +84,42 @@
 
         }
 
-        h1 {
+        .Stars4 {
+            width: 300px;
+            aspect-ratio: 1;
+            background-image: linear-gradient(fuchsia, white);
+            clip-path: polygon(50% 0,
+                    calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
+                    calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+                    calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+                    calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
+        }
+
+        .Star4text {
             color: rgb(0, 255, 255);
             font-family: "Anonymous Pro", monospace;
             font-weight: 400;
             font-style: italic;
-        }
+            font-size: 35px;
+            padding-bottom: 110px;
+            padding-top: 110px;
 
-        h2 {
-            color: rgb(0, 255, 255);
-            font-family: "Anonymou Pro", monospace;
-        }
+            h1 {
+                color: rgb(0, 255, 255);
+                font-family: "Anonymous Pro", monospace;
+                font-weight: 400;
+                font-style: italic;
+            }
 
-        h2 {
-            color: rgb(0, 255, 255);
-            font-family: "Anonymou Pro", monospace;
-        }
+            h2 {
+                color: rgb(0, 255, 255);
+                font-family: "Anonymou Pro", monospace;
+            }
+
+            h3 {
+                color: rgb(0, 255, 255);
+                font-family: "Anonymou Pro", monospace;
+            }
     </style>
     <h1> <strong>Step 1</strong>: Select what you’re matching with:</h1>
     <div class="Stars1" style="text-align: center;">
@@ -109,10 +133,16 @@
     <div class="Stars3" style="text-align: center;">
         <p class="Star3text">Outwears</p>
     </div>
-    <a href="index.html"> <h2>Back</h2>
-         <a href="entry3.html"> <h3>Next</h3>
+
+    <div class="Stars4" style="text-align: center;">
+        <p class="Star4text">Shoes</p>
+    </div>
+    <a href="index.html">
+        <h2>Back</h2>
+        <a href="entry3.html">
+            <h3>Next</h3>
 </body>
 
-    
+
 
 </html>
