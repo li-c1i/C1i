@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ur digital closet *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚</title>
-</head>
-
-<body>
     <style>
         body {
             background-color: rgb(238, 130, 238);
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         h1 {
@@ -32,11 +34,9 @@
         h3 {
             color: rgb(0, 255, 255);
             font-family: "Anonymous Pro", monospace;
-            font: size 100px;
+            font-size: 100px;
             position: relative;
             text-align: right;
-
-
         }
 
         h4 {
@@ -45,10 +45,28 @@
             font-weight: 400;
             font-style: italic;
             position: fixed;
-            bottom: 0%;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
+
+        .gradient-circle {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 100px;
+            background: linear-gradient(90deg, rgba(255, 182, 193, 0.8), rgba(255, 105, 180, 0.8));
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
     </style>
+</head>
+
+<body>
+
     <h1>You're Ready To Go!!</h1>
     <h2>.𖥔 ݁ ˖ ✦ ‧₊˚ ⋅</h2>
     <h3>.𖥔 ݁ ˖ ✦ ‧₊˚ ⋅✧˖°.</h3>
@@ -57,6 +75,8 @@
     <h2>.𖥔 ݁ ˖ ✦ ‧₊˚ ⋅</h2>
     <h3>.𖥔 ݁ ˖ ✦ ‧₊˚ ⋅✧˖°.</h3>
     <h4>Back</h4>
+
+    <div class="gradient-circle"></div>
 
 </body>
 
