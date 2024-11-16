@@ -1,86 +1,145 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Items in Digital Closet</title>
     <style>
         body {
             background-color: rgb(238, 130, 238);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            font-family: "Anonymous Pro", monospace;
+            text-align: center;
         }
 
         h1 {
+            font-size: 80px;
             color: rgb(0, 255, 255);
-            font-family: "Anonymous Pro", monospace;
             font-weight: 400;
             font-style: italic;
-            margin-bottom: 20px;
-            font-size: 50px;
         }
 
-        .grid-container {
+        .item-container {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
         }
 
-        .grid-row {
-            display: flex;
-            align-items: center;
+        .item-container img {
+            width: 150px;
+            height: auto;
+            border: 2px solid rgb(0, 255, 255);
+            cursor: pointer;
         }
 
-        .grid-item {
-            background-color: white;
-            border: 1.5px solid rgb(0, 255, 255);
-            padding: 90px;
-            font-size: 30px;
-            text-align: center;
-            flex: 1;
+        #trashBin {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed rgb(0, 255, 255);
+            margin-top: 50px;
+            position: relative;
+            display: inline-block;
         }
 
-        .arrow {
-            background-color: rgb(0, 255, 255);
-            color: white;
-            padding: 10px 2;
+        #trashBin p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(0, 255, 255);
             font-size: 20px;
+        }
+
+        h2,
+        h3 {
+            font-size: 18px;
+            color: rgb(0, 255, 255);
+            position: absolute;
+        }
+
+        h2 {
+            bottom: 8px;
+            left: 16px;
+        }
+
+        h3 {
+            bottom: 8px;
+            right: 16px;
         }
     </style>
 </head>
 
 <body>
+    <h1>Your Items in Digital Closet</h1>
 
-
-    <h1>☆Start Matching!!!!☆</h1>
-
-    <div class="grid-container">
-        <div class="grid-row">
-            <button class="arrow" id="leftArrow1">←</button>
-            <div class="grid-item" id="box1"></div>
-            <div class="grid-item" id="box2"></div>
-            <div class="grid-item" id="box3"></div>
-            <button class="arrow" id="rightArrow1">→</button>
-        </div>
-        <div class="grid-row">
-            <button class="arrow" id="leftArrow2">←</button>
-            <div class="grid-item" id="box4"></div>
-            <div class="grid-item" id="box5"></div>
-            <div class="grid-item" id="box6"></div>
-            <button class="arrow" id="rightArrow2">→</button>
-        </div>
-        <div class="grid-row">
-            <button class="arrow" id="leftArrow3">←</button>
-            <div class="grid-item" id="box7"></div>
-            <div class="grid-item" id="box8"></div>
-            <div class="grid-item" id="box9"></div>
-            <button class="arrow" id="rightArrow3">→</button>
-        </div>
+    <div class="item-container" id="itemContainer"></div>
+    <div id="trashBin">
+        <p>Drag here to delete</p>
     </div>
 
+    <a href="entry3.html">
+        <h2>Back</h2>
+        <h3>Next</h3>
 
+        <script>
+            const itemContainer = document.getElementById('itemContainer');
+            const trashBin = document.getElementById('trashBin');
+
+
+            const itemImages = JSON.parse(localStorage.getItem('itemImages'));
+
+            if (itemImages && itemImages.length > 0) {
+                itemImages.forEach((imageDataUrl, index) => {
+                    const img = document.createElement('img');
+                    img.src = imageDataUrl;
+                    img.draggable = true;
+
+                    img.addEventListener('dragstart', (event) => {
+                        event.dataTransfer.setData('imageIndex', index);
+                    });
+
+                    itemContainer.appendChild(img);
+                });
+            }
+
+
+            trashBin.addEventListener('dragover', (event) => {
+                event.preventDefault();
+                trashBin.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
+            });
+
+            trashBin.addEventListener('dragleave', (event) => {
+                event.preventDefault();
+                trashBin.style.backgroundColor = '';
+            });
+
+            trashBin.addEventListener('drop', (event) => {
+                event.preventDefault();
+                trashBin.style.backgroundColor = '';
+
+                const imageIndex = event.dataTransfer.getData('imageIndex');
+                if (imageIndex !== null) {
+                    itemImages.splice(imageIndex, 1);
+                    localStorage.setItem('itemImages', JSON.stringify(itemImages));
+
+
+                    itemContainer.innerHTML = '';
+                    itemImages.forEach((imageDataUrl, index) => {
+                        const img = document.createElement('img');
+                        img.src = imageDataUrl;
+                        img.draggable = true;
+
+                        img.addEventListener('dragstart', (event) => {
+                            event.dataTransfer.setData('imageIndex', index);
+                        });
+
+                        itemContainer.appendChild(img);
+                    });
+                }
+            });
+        </script>
 </body>
-
 
 </html>

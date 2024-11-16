@@ -5,232 +5,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ur digital closet *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚</title>
-</head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-    href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-    rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
 
-<body>
     <style>
         body {
             background-color: rgb(238, 130, 238);
-        }
-
-        .Stars1 {
-            width: 300px;
-            aspect-ratio: 1;
-            background-image: linear-gradient(fuchsia, white);
-            clip-path: polygon(50% 0,
-                    calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
-                    calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-                    calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-                    calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
-            position: absolute;
-            left: 0;
-
-        }
-
-        .Star1text {
-            color: rgb(0, 255, 255);
             font-family: "Anonymous Pro", monospace;
-            font-weight: 400;
-            font-style: italic;
-            font-size: 25px;
-            padding-bottom: 110px;
-            padding-top: 110px;
-
-        }
-
-        .Stars2 {
-            width: 300px;
-            aspect-ratio: 1;
-            background-image: linear-gradient(fuchsia, white);
-            clip-path: polygon(50% 0,
-                    calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
-                    calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-                    calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-                    calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .Star2text {
-            color: rgb(0, 255, 255);
-            font-family: "Anonymous Pro", monospace;
-            font-weight: 400;
-            font-style: italic;
-            font-size: 25px;
-            padding-bottom: 110px;
-            padding-top: 110px;
-
-        }
-
-        .Stars3 {
-            width: 300px;
-            aspect-ratio: 1;
-            background-image: linear-gradient(fuchsia, white);
-            clip-path: polygon(50% 0,
-                    calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
-                    calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-                    calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-                    calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
-            position: absolute;
-            right: 0;
-        }
-
-        .Star3text {
-            color: rgb(0, 255, 255);
-            font-family: "Anonymous Pro", monospace;
-            font-weight: 400;
-            font-style: italic;
-            font-size: 25px;
-            padding-bottom: 110px;
-            padding-top: 110px;
-
-        }
-
-        .Stars4 {
-            width: 300px;
-            aspect-ratio: 1;
-            background-image: linear-gradient(fuchsia, white);
-            clip-path: polygon(50% 0,
-                    calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
-                    calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-                    calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-                    calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
-            position: absolute;
-            left: 40%;
-            top: 50%;
-
-        }
-
-        .Star4text {
-            color: rgb(0, 255, 255);
-            font-family: "Anonymous Pro", monospace;
-            font-weight: 400;
-            font-style: italic;
-            font-size: 25px;
-            padding-bottom: 110px;
-            padding-top: 110px;
-
-        }
-
-        .Stars5 {
-            width: 300px;
-            aspect-ratio: 1;
-            background-image: linear-gradient(fuchsia, white);
-            clip-path: polygon(50% 0,
-                    calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
-                    calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-                    calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-                    calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
-            position: absolute;
-            right: 0%;
-            top: 50%;
-        }
-
-        .Star5text {
-            color: rgb(0, 255, 255);
-            font-family: "Anonymous Pro", monospace;
-            font-weight: 400;
-            font-style: italic;
-            font-size: 25px;
-            padding-bottom: 110px;
-            padding-top: 110px;
-        }
-
-        .Stars6 {
-            width: 300px;
-            aspect-ratio: 1;
-            background-image: linear-gradient(fuchsia, white);
-            clip-path: polygon(50% 0,
-                    calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
-                    calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-                    calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-                    calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
-            position: absolute;
-            left: 0%;
-            top: 50%;
-        }
-
-        .Star6text {
-            color: rgb(0, 255, 255);
-            font-family: "Anonymous Pro", monospace;
-            font-weight: 400;
-            font-style: italic;
-            font-size: 25px;
-            padding-bottom: 110px;
-            padding-top: 110px;
-
+            text-align: center;
         }
 
         h1 {
             color: rgb(0, 255, 255);
-            font-family: "Anonymous Pro", monospace;
             font-weight: 400;
             font-style: italic;
+            font-size: 30px;
+            margin-top: 30px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .Stars {
+            width: 250px;
+            height: 250px;
+            background-image: linear-gradient(fuchsia, white);
+            clip-path: polygon(50% 0,
+                    calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
+                    calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+                    calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+                    calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .Stars a {
+            color: rgb(0, 255, 255);
+            font-size: 25px;
+            font-style: italic;
+            text-decoration: none;
+        }
+
+        .Stars p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        h2,
+        h3 {
+            font-size: 18px;
+            color: rgb(0, 255, 255);
         }
 
         h2 {
-            font-size: 35px;
-            color: rgb(0, 255, 255);
             position: absolute;
             bottom: 8px;
             left: 16px;
-            font-size: 18px;
         }
 
         h3 {
-            font-size: 35px;
-            color: rgb(0, 255, 255);
             position: absolute;
             bottom: 8px;
             right: 16px;
-            font-size: 18px;
-
-
         }
     </style>
-    <h1> <strong>Step 1</strong>: Select what you’re matching with:</h1>
-    <div class="Stars1" style="text-align: center;">
-        <a href="entry3.html">
-            <p class="Star1text">Tops</p>
-    </div>
+</head>
 
-    <div class="Stars2" style="text-align: center;">
-        <a href="entry7.html">
-            <p class="Star2text">Bottoms</p>
-    </div>
+<body>
 
-    <div class="Stars3" style="text-align: center;">
-        <a href="entry8.html">
-            <p class="Star3text">Socks</p>
-    </div>
+    <h1><strong>Step 1</strong>: Select what you’re matching with:</h1>
 
-    <div class="Stars4" style="text-align: center;">
-        <a href="entry10.html">
-            <p class="Star4text">Shoes</p>
-    </div>
 
-    <div class="Stars5" style="text-align: center;">
-        <a href="entry11.html">
-            <p class="Star5text">Bags</p>
-    </div>
-
-    <div class="Stars6" style="text-align: center;">
-        <a href="entry9.html">
-            <p class="Star6text">Hearwears</p>
+    <div class="container">
+        <div class="Stars">
+            <a href="entry3.html">
+                <p>Tops</p>
+            </a>
+        </div>
+        <div class="Stars">
+            <a href="entry7.html">
+                <p>Bottoms</p>
+            </a>
+        </div>
+        <div class="Stars">
+            <a href="entry8.html">
+                <p>Socks</p>
+            </a>
+        </div>
+        <div class="Stars">
+            <a href="entry10.html">
+                <p>Shoes</p>
+            </a>
+        </div>
+        <div class="Stars">
+            <a href="entry11.html">
+                <p>Bags</p>
+            </a>
+        </div>
+        <div class="Stars">
+            <a href="entry9.html">
+                <p>Headwear</p>
+            </a>
+        </div>
     </div>
 
     <a href="index.html">
         <h2>Back</h2>
-        <a href="entry4.html">
-            <h3>Next</h3>
+    </a>
+    <a href="entry4.html">
+        <h3>Next</h3>
+    </a>
+
 </body>
-
-
 
 </html>
