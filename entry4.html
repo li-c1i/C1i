@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Items in Digital Closet</title>
+    <title>Your Items in Digital Closet☆Tops☆</title>
     <style>
         body {
             background-color: rgb(238, 130, 238);
@@ -81,51 +81,17 @@
 
     <a href="entry3.html">
         <h2>Back</h2>
-        <h3>Next</h3>
+        <a href="entry12.html">
+            <h3>Next</h3>
 
-        <script>
-            const itemContainer = document.getElementById('itemContainer');
-            const trashBin = document.getElementById('trashBin');
-
-
-            const itemImages = JSON.parse(localStorage.getItem('itemImages'));
-
-            if (itemImages && itemImages.length > 0) {
-                itemImages.forEach((imageDataUrl, index) => {
-                    const img = document.createElement('img');
-                    img.src = imageDataUrl;
-                    img.draggable = true;
-
-                    img.addEventListener('dragstart', (event) => {
-                        event.dataTransfer.setData('imageIndex', index);
-                    });
-
-                    itemContainer.appendChild(img);
-                });
-            }
+            <script>
+                const itemContainer = document.getElementById('itemContainer');
+                const trashBin = document.getElementById('trashBin');
 
 
-            trashBin.addEventListener('dragover', (event) => {
-                event.preventDefault();
-                trashBin.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
-            });
+                const itemImages = JSON.parse(localStorage.getItem('itemImages'));
 
-            trashBin.addEventListener('dragleave', (event) => {
-                event.preventDefault();
-                trashBin.style.backgroundColor = '';
-            });
-
-            trashBin.addEventListener('drop', (event) => {
-                event.preventDefault();
-                trashBin.style.backgroundColor = '';
-
-                const imageIndex = event.dataTransfer.getData('imageIndex');
-                if (imageIndex !== null) {
-                    itemImages.splice(imageIndex, 1);
-                    localStorage.setItem('itemImages', JSON.stringify(itemImages));
-
-
-                    itemContainer.innerHTML = '';
+                if (itemImages && itemImages.length > 0) {
                     itemImages.forEach((imageDataUrl, index) => {
                         const img = document.createElement('img');
                         img.src = imageDataUrl;
@@ -138,8 +104,43 @@
                         itemContainer.appendChild(img);
                     });
                 }
-            });
-        </script>
+
+
+                trashBin.addEventListener('dragover', (event) => {
+                    event.preventDefault();
+                    trashBin.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
+                });
+
+                trashBin.addEventListener('dragleave', (event) => {
+                    event.preventDefault();
+                    trashBin.style.backgroundColor = '';
+                });
+
+                trashBin.addEventListener('drop', (event) => {
+                    event.preventDefault();
+                    trashBin.style.backgroundColor = '';
+
+                    const imageIndex = event.dataTransfer.getData('imageIndex');
+                    if (imageIndex !== null) {
+                        itemImages.splice(imageIndex, 1);
+                        localStorage.setItem('itemImages', JSON.stringify(itemImages));
+
+
+                        itemContainer.innerHTML = '';
+                        itemImages.forEach((imageDataUrl, index) => {
+                            const img = document.createElement('img');
+                            img.src = imageDataUrl;
+                            img.draggable = true;
+
+                            img.addEventListener('dragstart', (event) => {
+                                event.dataTransfer.setData('imageIndex', index);
+                            });
+
+                            itemContainer.appendChild(img);
+                        });
+                    }
+                });
+            </script>
 </body>
 
 </html>

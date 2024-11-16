@@ -74,7 +74,8 @@
     }
 
     h2,
-    h3 {
+    h3,
+    h4 {
       font-size: 18px;
       color: rgb(0, 255, 255);
       position: absolute;
@@ -86,6 +87,11 @@
     }
 
     h3 {
+      bottom: -558px;
+      right: 16px;
+    }
+
+    h4 {
       bottom: 8px;
       right: 16px;
     }
@@ -111,6 +117,10 @@
     <h2>Back</h2>
   </a>
 
+  <a href="entry4.html">
+    <h4>View items</h4>
+  </a>
+
   <script>
     const dropArea = document.getElementById('drop-area');
     const canvas = document.getElementById('canvas');
@@ -118,7 +128,7 @@
     const output = document.getElementById('output');
     const nextButton = document.getElementById('nextButton');
 
-    let itemImages = JSON.parse(localStorage.getItem('itemImages')) || [];  // 获取之前保存的图像备份
+    let itemImages = JSON.parse(localStorage.getItem('itemImages')) || [];
 
     dropArea.addEventListener('dragover', (event) => {
       event.preventDefault();
