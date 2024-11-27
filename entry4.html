@@ -122,9 +122,8 @@
 
                     const imageIndex = event.dataTransfer.getData('imageIndex');
                     if (imageIndex !== null) {
-                        itemImages.splice(imageIndex, 1);
-                        localStorage.setItem('itemImages', JSON.stringify(itemImages));
-
+                        itemImagesEntry3.splice(imageIndex, 1);
+                        localStorage.setItem('itemImagesEntry3', JSON.stringify(itemImagesEntry3));
 
                         itemContainer.innerHTML = '';
                         itemImages.forEach((imageDataUrl, index) => {
