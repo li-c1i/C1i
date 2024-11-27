@@ -79,19 +79,18 @@
         <p>Drag here to delete</p>
     </div>
 
-    <a href="entry7.html">
+    <a href="entry3.html">
         <h2>Back</h2>
         <a href="entry12.html">
             <h3>Next</h3>
 
             <script>
-                const itemContainer = document.getElementById('itemContainer');
-                const trashBin = document.getElementById('trashBin');
+                const itemContainerEntry8 = document.getElementById('itemContainerEntry8');
+                const trashBinEntry8 = document.getElementById('trashBinEntry8');
 
-                // Retrieve only the images from entry3, separate from any other images
-                const itemImagesEntry7 = JSON.parse(localStorage.getItem('itemImagesEntry7')) || [];
+                const itemImagesEntry7 = itemImagesUtil.getItemImages('itemImagesEntry7');
 
-                if (itemImagesEntry7 && itemImagesEntry3.length > 0) {
+                if (itemImagesEntry7.length > 0) {
                     itemImagesEntry7.forEach((imageDataUrl, index) => {
                         const img = document.createElement('img');
                         img.src = imageDataUrl;
@@ -101,32 +100,31 @@
                             event.dataTransfer.setData('imageIndex', index);
                         });
 
-                        itemContainer.appendChild(img);
+                        itemContainerEntry8.appendChild(img);
                     });
                 }
 
-                trashBin.addEventListener('dragover', (event) => {
+                trashBinEntry8.addEventListener('dragover', (event) => {
                     event.preventDefault();
-                    trashBin.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
+                    trashBinEntry8.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
                 });
 
-                trashBin.addEventListener('dragleave', (event) => {
+                trashBinEntry8.addEventListener('dragleave', (event) => {
                     event.preventDefault();
-                    trashBin.style.backgroundColor = '';
+                    trashBinEntry8.style.backgroundColor = '';
                 });
 
-                trashBin.addEventListener('drop', (event) => {
+                trashBinEntry8.addEventListener('drop', (event) => {
                     event.preventDefault();
-                    trashBin.style.backgroundColor = '';
+                    trashBinEntry8.style.backgroundColor = '';
 
                     const imageIndex = event.dataTransfer.getData('imageIndex');
                     if (imageIndex !== null) {
-                        itemImagesEntry7.splice(imageIndex, 1);
-                        localStorage.setItem('itemImagesEntry7', JSON.stringify(itemImagesEntry7));
+                        itemImagesUtil.removeItemImage('itemImagesEntry7', parseInt(imageIndex));
 
-                        // Update the container to reflect the removal
-                        itemContainer.innerHTML = '';
-                        itemImagesEntry7.forEach((imageDataUrl, index) => {
+                        itemContainerEntry8.innerHTML = '';
+                        const updatedImages = itemImagesUtil.getItemImages('itemImagesEntry7');
+                        updatedImages.forEach((imageDataUrl, index) => {
                             const img = document.createElement('img');
                             img.src = imageDataUrl;
                             img.draggable = true;
@@ -135,12 +133,11 @@
                                 event.dataTransfer.setData('imageIndex', index);
                             });
 
-                            itemContainer.appendChild(img);
+                            itemContainerEntry8.appendChild(img);
                         });
                     }
                 });
             </script>
-
 
 </body>
 
