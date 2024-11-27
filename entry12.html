@@ -146,18 +146,24 @@
         <h2>Back</h2>
         <a href="entry4.html">
             <h3>Next</h3>
+            
 
             <script>
-                const itemImages = JSON.parse(localStorage.getItem("itemImages")) || [];
+                // const itemImages = JSON.parse(localStorage.getItem("itemImages")) || [];
+                
+                const itemImages910 = JSON.parse(localStorage.getItem("itemImages910")) || [];
+                const itemImages34 = JSON.parse(localStorage.getItem("itemImages34")) || [];
+                const itemImages78 = JSON.parse(localStorage.getItem("itemImages78")) || [];
+                const itemImages1314 = JSON.parse(localStorage.getItem("itemImages1314")) || [];
 
                 // Function to update the boxes in a row based on the current start index
-                function updateGrid(startIndex, rowBoxes) {
+                function updateGrid(startIndex, rowBoxes,list) {
                     rowBoxes.forEach((box, i) => {
                         const imageIndex = startIndex + i;
                         box.innerHTML = "";
-                        if (itemImages[imageIndex]) {
+                        if (list[imageIndex]) {
                             const img = document.createElement("img");
-                            img.src = itemImages[imageIndex];
+                            img.src = list[imageIndex];
                             box.appendChild(img);
                         }
                     });
@@ -165,29 +171,29 @@
 
                 // Set up for each row
                 const rowData = [
-                    { boxes: [document.getElementById("box1"), document.getElementById("box2"), document.getElementById("box3")], leftArrow: document.getElementById("leftArrow1"), rightArrow: document.getElementById("rightArrow1"), currentStartIndex: 0 },
-                    { boxes: [document.getElementById("box4"), document.getElementById("box5"), document.getElementById("box6")], leftArrow: document.getElementById("leftArrow2"), rightArrow: document.getElementById("rightArrow2"), currentStartIndex: 0 },
-                    { boxes: [document.getElementById("box7"), document.getElementById("box8"), document.getElementById("box9")], leftArrow: document.getElementById("leftArrow3"), rightArrow: document.getElementById("rightArrow3"), currentStartIndex: 0 },
-                    { boxes: [document.getElementById("box10"), document.getElementById("box11"), document.getElementById("box12")], leftArrow: document.getElementById("leftArrow4"), rightArrow: document.getElementById("rightArrow4"), currentStartIndex: 0 }
+                    { boxes: [document.getElementById("box1"), document.getElementById("box2"), document.getElementById("box3")], leftArrow: document.getElementById("leftArrow1"), rightArrow: document.getElementById("rightArrow1"), currentStartIndex: 0 ,list:itemImages910},
+                    { boxes: [document.getElementById("box4"), document.getElementById("box5"), document.getElementById("box6")], leftArrow: document.getElementById("leftArrow2"), rightArrow: document.getElementById("rightArrow2"), currentStartIndex: 0 ,list:itemImages34},
+                    { boxes: [document.getElementById("box7"), document.getElementById("box8"), document.getElementById("box9")], leftArrow: document.getElementById("leftArrow3"), rightArrow: document.getElementById("rightArrow3"), currentStartIndex: 0 ,list:itemImages78},
+                    { boxes: [document.getElementById("box10"), document.getElementById("box11"), document.getElementById("box12")], leftArrow: document.getElementById("leftArrow4"), rightArrow: document.getElementById("rightArrow4"), currentStartIndex: 0 ,list:itemImages1314 }
                 ];
 
                 // Loop through each row and set up event listeners for the arrows
                 rowData.forEach(row => {
                     // Update the grid with the current start index for the row
-                    updateGrid(row.currentStartIndex, row.boxes);
+                    updateGrid(row.currentStartIndex, row.boxes,row.list);
 
                     // Add event listeners for the left and right arrows
                     row.leftArrow.addEventListener("click", () => {
                         if (row.currentStartIndex > 0) {
                             row.currentStartIndex--;
-                            updateGrid(row.currentStartIndex, row.boxes);
+                            updateGrid(row.currentStartIndex, row.boxes,row.list);
                         }
                     });
 
                     row.rightArrow.addEventListener("click", () => {
-                        if (row.currentStartIndex + 3 < itemImages.length) {
+                        if (row.currentStartIndex + 3 < row.list.length) {
                             row.currentStartIndex++;
-                            updateGrid(row.currentStartIndex, row.boxes);
+                            updateGrid(row.currentStartIndex, row.boxes,row.list);
                         }
                     });
                 });
