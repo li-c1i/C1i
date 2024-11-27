@@ -74,70 +74,79 @@
 <body>
     <h1>Your Items in Digital Closet</h1>
 
-    <div class="item-container" id="itemContainer"></div>
+    <div class="item-container" id="itemContainerEntry8"></div>
     <div id="trashBin">
         <p>Drag here to delete</p>
     </div>
 
-    <a href="entry3.html">
+    <a href="entry7.html">
         <h2>Back</h2>
-        <a href="entry12.html">
-            <h3>Next</h3>
+    </a>
+    <a href="entry12.html">
+        <h3>Next</h3>
+    </a>
 
-            <script>
-                const itemContainerEntry8 = document.getElementById('itemContainerEntry8');
-                const trashBinEntry8 = document.getElementById('trashBinEntry8');
+    <script>
+        const itemContainerEntry8 = document.getElementById('itemContainerEntry8');
+        const trashBinEntry8 = document.getElementById('trashBin');
 
-                const itemImagesEntry7 = itemImagesUtil.getItemImages('itemImagesEntry7');
+        // const itemImagesEntry7 = itemImagesUtil.getItemImages('itemImagesEntry7');
+        const itemImagesEntry7 = JSON.parse(localStorage.getItem('itemImages78'));
+        console.log(itemImagesEntry7);
 
-                if (itemImagesEntry7.length > 0) {
-                    itemImagesEntry7.forEach((imageDataUrl, index) => {
-                        const img = document.createElement('img');
-                        img.src = imageDataUrl;
-                        img.draggable = true;
 
-                        img.addEventListener('dragstart', (event) => {
-                            event.dataTransfer.setData('imageIndex', index);
-                        });
 
-                        itemContainerEntry8.appendChild(img);
+        if (itemImagesEntry7.length > 0) {
+            itemImagesEntry7.forEach((imageDataUrl, index) => {
+                const img = document.createElement('img');
+                img.src = imageDataUrl;
+                img.draggable = true;
+
+                img.addEventListener('dragstart', (event) => {
+                    event.dataTransfer.setData('imageIndex', index);
+                });
+
+                itemContainerEntry8.appendChild(img);
+            });
+        }
+
+        trashBinEntry8.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            trashBinEntry8.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
+        });
+
+        trashBinEntry8.addEventListener('dragleave', (event) => {
+            event.preventDefault();
+            trashBinEntry8.style.backgroundColor = '';
+        });
+
+        trashBinEntry8.addEventListener('drop', (event) => {
+            event.preventDefault();
+            trashBinEntry8.style.backgroundColor = '';
+
+            const imageIndex = event.dataTransfer.getData('imageIndex');
+            if (imageIndex !== null) {
+                itemImagesEntry7.splice(imageIndex, 1);
+                localStorage.setItem('itemImages78', JSON.stringify(itemImagesEntry7));
+
+                // itemImagesUtil.removeItemImage('itemImagesEntry7', parseInt(imageIndex));
+
+                itemContainerEntry8.innerHTML = '';
+                // const updatedImages = itemImagesUtil.getItemImages('itemImagesEntry7');
+                itemImagesEntry7.forEach((imageDataUrl, index) => {
+                    const img = document.createElement('img');
+                    img.src = imageDataUrl;
+                    img.draggable = true;
+
+                    img.addEventListener('dragstart', (event) => {
+                        event.dataTransfer.setData('imageIndex', index);
                     });
-                }
 
-                trashBinEntry8.addEventListener('dragover', (event) => {
-                    event.preventDefault();
-                    trashBinEntry8.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
+                    itemContainerEntry8.appendChild(img);
                 });
-
-                trashBinEntry8.addEventListener('dragleave', (event) => {
-                    event.preventDefault();
-                    trashBinEntry8.style.backgroundColor = '';
-                });
-
-                trashBinEntry8.addEventListener('drop', (event) => {
-                    event.preventDefault();
-                    trashBinEntry8.style.backgroundColor = '';
-
-                    const imageIndex = event.dataTransfer.getData('imageIndex');
-                    if (imageIndex !== null) {
-                        itemImagesUtil.removeItemImage('itemImagesEntry7', parseInt(imageIndex));
-
-                        itemContainerEntry8.innerHTML = '';
-                        const updatedImages = itemImagesUtil.getItemImages('itemImagesEntry7');
-                        updatedImages.forEach((imageDataUrl, index) => {
-                            const img = document.createElement('img');
-                            img.src = imageDataUrl;
-                            img.draggable = true;
-
-                            img.addEventListener('dragstart', (event) => {
-                                event.dataTransfer.setData('imageIndex', index);
-                            });
-
-                            itemContainerEntry8.appendChild(img);
-                        });
-                    }
-                });
-            </script>
+            }
+        });
+    </script>
 
 </body>
 
