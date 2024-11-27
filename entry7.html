@@ -128,7 +128,8 @@
         const output = document.getElementById('output');
         const nextButton = document.getElementById('nextButton');
 
-        const itemImagesEntry7 = itemImagesUtil.getItemImages('itemImagesEntry7');
+        // const itemImagesEntry7 = itemImagesUtil.getItemImages('itemImagesEntry7');
+        const itemImagesEntry7 = JSON.parse(localStorage.getItem('itemImages78')) || [];
 
         dropArea.addEventListener('dragover', (event) => {
             event.preventDefault();
@@ -192,10 +193,15 @@
             output.style.display = 'block';
 
             const imageDataUrl = canvas.toDataURL();
-            itemImagesUtil.addItemImage('itemImagesEntry7', imageDataUrl);
+            // itemImagesUtil.addItemImage('itemImagesEntry7', imageDataUrl);
+            itemImagesEntry7.push(imageDataUrl);
+
+
+            // localStorage.setItem('itemImages78', JSON.stringify(itemImagesEntry7));
         }
 
         nextButton.addEventListener('click', () => {
+            localStorage.setItem('itemImages78', JSON.stringify(itemImagesEntry7));
             window.location.href = 'entry8.html';
         });
     </script>
