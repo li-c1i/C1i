@@ -81,71 +81,67 @@
 
     <a href="entry7.html">
         <h2>Back</h2>
-    </a>
-    <a href="entry12.html">
-        <h3>Next</h3>
-    </a>
+        <a href="entry12.html">
+            <h3>Next</h3>
 
-    <script>
-        const itemContainer = document.getElementById('itemContainer');
-        const trashBin = document.getElementById('trashBin');
+            <script>
+                const itemContainer = document.getElementById('itemContainer');
+                const trashBin = document.getElementById('trashBin');
 
-        const itemImages = JSON.parse(localStorage.getItem('itemImages')) || [];
+                // Retrieve only the images from entry3, separate from any other images
+                const itemImagesEntry7 = JSON.parse(localStorage.getItem('itemImagesEntry7')) || [];
 
-        if (itemImages && itemImages.length > 0) {
-            itemImages.forEach((imageDataUrl, index) => {
-                const img = document.createElement('img');
-                img.src = imageDataUrl;
-                img.draggable = true;
+                if (itemImagesEntry7 && itemImagesEntry3.length > 0) {
+                    itemImagesEntry7.forEach((imageDataUrl, index) => {
+                        const img = document.createElement('img');
+                        img.src = imageDataUrl;
+                        img.draggable = true;
 
-                img.addEventListener('dragstart', (event) => {
-                    event.dataTransfer.setData('imageIndex', index);
-                });
+                        img.addEventListener('dragstart', (event) => {
+                            event.dataTransfer.setData('imageIndex', index);
+                        });
 
-                itemContainer.appendChild(img);
-            });
-        }
-
-        trashBin.addEventListener('dragover', (event) => {
-            event.preventDefault();
-            trashBin.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
-        });
-
-        trashBin.addEventListener('dragleave', (event) => {
-            event.preventDefault();
-            trashBin.style.backgroundColor = '';
-        });
-
-        trashBin.addEventListener('drop', (event) => {
-            event.preventDefault();
-            trashBin.style.backgroundColor = '';
-
-            const imageIndex = event.dataTransfer.getData('imageIndex');
-            if (imageIndex !== null && imageIndex !== undefined) {
-                itemImages.splice(imageIndex, 1);
-                const entryKey = 'itemImages_entry8'; // 定义对应的 entry8 的键名
-                const itemImages = JSON.parse(localStorage.getItem(entryKey)) || [];
-
-                // 操作 itemImages 时：
-                localStorage.setItem(entryKey, JSON.stringify(itemImages));
-
-
-                // 清空并重新渲染图像
-                itemContainer.innerHTML = '';
-                itemImages.forEach((imageDataUrl, index) => {
-                    const img = document.createElement('img');
-                    img.src = imageDataUrl;
-                    img.draggable = true;
-
-                    img.addEventListener('dragstart', (event) => {
-                        event.dataTransfer.setData('imageIndex', index);
+                        itemContainer.appendChild(img);
                     });
+                }
 
-                    itemContainer.appendChild(img);
+                trashBin.addEventListener('dragover', (event) => {
+                    event.preventDefault();
+                    trashBin.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
                 });
-            }
-        });
-    </script>
+
+                trashBin.addEventListener('dragleave', (event) => {
+                    event.preventDefault();
+                    trashBin.style.backgroundColor = '';
+                });
+
+                trashBin.addEventListener('drop', (event) => {
+                    event.preventDefault();
+                    trashBin.style.backgroundColor = '';
+
+                    const imageIndex = event.dataTransfer.getData('imageIndex');
+                    if (imageIndex !== null) {
+                        itemImagesEntry7.splice(imageIndex, 1);
+                        localStorage.setItem('itemImagesEntry7', JSON.stringify(itemImagesEntry7));
+
+                        // Update the container to reflect the removal
+                        itemContainer.innerHTML = '';
+                        itemImagesEntry7.forEach((imageDataUrl, index) => {
+                            const img = document.createElement('img');
+                            img.src = imageDataUrl;
+                            img.draggable = true;
+
+                            img.addEventListener('dragstart', (event) => {
+                                event.dataTransfer.setData('imageIndex', index);
+                            });
+
+                            itemContainer.appendChild(img);
+                        });
+                    }
+                });
+            </script>
+
+
 </body>
 
 </html>
