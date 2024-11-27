@@ -128,7 +128,7 @@
     const output = document.getElementById('output');
     const nextButton = document.getElementById('nextButton');
 
-    let itemImages = JSON.parse(localStorage.getItem('itemImages')) || [];
+    let itemImages = JSON.parse(localStorage.getItem('itemImages34')) || [];
 
     dropArea.addEventListener('dragover', (event) => {
       event.preventDefault();
@@ -197,15 +197,17 @@
 
       const imageDataUrl = canvas.toDataURL();
       itemImages.push(imageDataUrl);
+      console.log(itemImages);
+      
 
 
-      localStorage.setItem('itemImages', JSON.stringify(itemImages));
+      // localStorage.setItem('itemImages34', JSON.stringify(itemImages));
     }
 
 
     nextButton.addEventListener('click', () => {
 
-      localStorage.setItem('itemImages', JSON.stringify(itemImages));
+      localStorage.setItem('itemImages34', JSON.stringify(itemImages));
 
 
       window.location.href = 'entry4.html';
