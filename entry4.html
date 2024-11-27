@@ -89,7 +89,7 @@
                 const trashBin = document.getElementById('trashBin');
 
 
-                const itemImages = JSON.parse(localStorage.getItem('itemImages'));
+                const itemImages = JSON.parse(localStorage.getItem('itemImages34'));
 
                 if (itemImages && itemImages.length > 0) {
                     itemImages.forEach((imageDataUrl, index) => {
@@ -122,8 +122,8 @@
 
                     const imageIndex = event.dataTransfer.getData('imageIndex');
                     if (imageIndex !== null) {
-                        itemImagesEntry3.splice(imageIndex, 1);
-                        localStorage.setItem('itemImagesEntry3', JSON.stringify(itemImagesEntry3));
+                        itemImages.splice(imageIndex, 1);
+                        localStorage.setItem('itemImages34', JSON.stringify(itemImages));
 
                         itemContainer.innerHTML = '';
                         itemImages.forEach((imageDataUrl, index) => {
