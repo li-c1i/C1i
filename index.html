@@ -1,50 +1,100 @@
 <!DOCTYPE html>
-  <head>
-    <title> Ur digital closet *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚</title>
-    <style>
-      body {
-        background-color: rgb(238, 130, 238);
-      }
-    </style>
-  </head>
-  <body>
-    <style>
-    
-      h1 {
-        font-size: 50px;
-        text-shadow: 1px 1px 1px blue,
-                     2px 2px 1px blue;
-        text-align: center;
-        letter-spacing: 3px;
-        color:rgb(0, 250, 50);
-      }
+<html lang="en">
 
-      h1 + h2 {
-        font-weight: bold;
-        font-family: Times, Arial, sans-serif;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ur Digital Closet *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, fuchsia, white);
+      margin: 0;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
 
+    h1 {
+      font-size: 50px;
+      text-shadow: 1px 1px 1px blue,
+        2px 2px 1px blue;
+      text-align: center;
+      letter-spacing: 3px;
+      color: rgb(0, 250, 50);
+    }
 
-      h2 {
-        font-size: 30px;
-        color:rgb(0, 255, 255);
-        position:absolute;
-        width:100%;
-        bottom:0;
-        text-align:center;
-        letter-spacing: 1px;}
+    h2 {
+      font-size: 30px;
+      color: rgb(0, 255, 255);
+      text-shadow: 1px 1px 1px blue,
+        2px 2px 1px blue;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      text-align: center;
+      letter-spacing: 1px;
+    }
 
-       
-    </style>
-    <h1>Welcome To Ur Digital Closet!</h1>
-    <p align="center"
-      color="rgb(0,255,0)">
-     <i>What are you wearing today?</i></br>
-      ︵‿︵‿୨♡୧‿︵‿︵
-    </p>
-    
-    
-    <a href="entry2.html"><h2> Get Started!</h2></a>
- 
-  </body>
+    h2:hover {
+      color: rgb(255, 105, 180);
+      /* 鼠标悬停时更改文字颜色 */
+      transform: scale(1.2);
+      /* 放大效果 */
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .image-container {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      /* 图片之间的间距 */
+      margin: 10px auto;
+      padding: 0;
+    }
+
+    .image-container img {
+      max-width: 40%;
+      /* 限制图片最大宽度为屏幕的40% */
+      height: auto;
+      border-radius: 10px;
+      /* 图片圆角 */
+      transition: transform 0.3s ease;
+      /* 添加缩放动画 */
+    }
+
+    .image-container img:hover {
+      transform: scale(1.1);
+      /* 鼠标悬停放大 */
+    }
+
+    p {
+      text-align: center;
+      color: rgb(0, 255, 0);
+      font-style: italic;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Welcome To Ur Digital Closet!</h1>
+  <p>
+    What are you wearing today?</br>
+    ︵‿︵‿୨♡୧‿︵‿︵
+  </p>
+
+  <div class="image-container">
+    <img src="images/beanie.png" alt="Beanie">
+    <img src="images/laptop.png" alt="Laptop">
+  </div>
+
+  <a href="entry2.html">
+    <h2>Get Started!</h2>
+  </a>
+</body>
+
 </html>
