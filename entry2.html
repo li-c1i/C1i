@@ -13,7 +13,9 @@
 
     <style>
         body {
-            background-color: rgb(238, 130, 238);
+            background: rgb(238, 130, 238);
+            margin: 0;
+            height: 100vh;
             font-family: "Anonymous Pro", monospace;
             text-align: center;
         }
@@ -50,6 +52,14 @@
             padding: 10px;
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            /* Smooth transition */
+        }
+
+        .Stars:hover {
+            color: rgb(255, 105, 180);
+            transform: scale(1.2);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         }
 
         .Stars a {
@@ -107,7 +117,7 @@
         </div> -->
         <div class="Stars">
             <a href="entry9.html">
-                <p>Shoes</p>
+                <p>Hearwear</p>
             </a>
         </div>
         <!-- <div class="Stars">
@@ -117,7 +127,7 @@
         </div> -->
         <div class="Stars">
             <a href="entry13.html">
-                <p>Headwear</p>
+                <p>Shoes</p>
             </a>
         </div>
     </div>
